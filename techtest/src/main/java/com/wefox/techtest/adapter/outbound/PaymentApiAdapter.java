@@ -1,26 +1,27 @@
 package com.wefox.techtest.adapter.outbound;
 
 import com.wefox.techtest.model.Payment;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Component
-@AllArgsConstructor
 public class PaymentApiAdapter {
-    private final WebClient paymentWebClient;
+    private final WebClient webClient;
 
-    public void validate(final Payment payment) {
-        paymentWebClient.post()
+    public PaymentApiAdapter(@Qualifier("paymentWebClient") WebClient webClient) {
+        this.webClient = webClient;
+    }
+
+    public HttpStatusCode execute(final Payment payment) {
+        return webClient.post()
                 .bodyValue(payment)
                 .retrieve()
                 .toBodilessEntity()
-                .subscribe(response -> {
-                    if (response.getStatusCode().is2xxSuccessful()) {
-                        System.out.println("Tudo bem, tudo joia");
-                    } else {
-                        System.out.println("to LOG");
-                    }
-                });
+                .blockOptional()
+                .map(ResponseEntity::getStatusCode)
+                .orElseThrow();
     }
 }
