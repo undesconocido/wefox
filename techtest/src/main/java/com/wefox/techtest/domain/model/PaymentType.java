@@ -1,4 +1,4 @@
-package com.wefox.techtest.model;
+package com.wefox.techtest.domain.model;
 
 public enum PaymentType {
     ONLINE,

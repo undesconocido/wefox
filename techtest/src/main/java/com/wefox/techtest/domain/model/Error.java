@@ -1,4 +1,4 @@
-package com.wefox.techtest.model;
+package com.wefox.techtest.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;

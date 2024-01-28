@@ -1,6 +1,6 @@
 package com.wefox.techtest.adapter.outbound;
 
-import com.wefox.techtest.model.Payment;
+import com.wefox.techtest.domain.model.Payment;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,6 @@ public class PaymentApiAdapter {
                 .retrieve()
                 .toBodilessEntity()
                 .blockOptional()
-                .map(ResponseEntity::getStatusCode)
-                .orElseThrow();
+                .map(ResponseEntity::getStatusCode).orElse(HttpStatusCode.valueOf(500));
     }
 }

@@ -1,6 +1,5 @@
-package com.wefox.techtest.config;
+package com.wefox.techtest.adapter.config;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;

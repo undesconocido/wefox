@@ -1,4 +1,4 @@
-package com.wefox.techtest.store.model;
+package com.wefox.techtest.store.entity;
 
 public enum PaymentType {
     ONLINE,

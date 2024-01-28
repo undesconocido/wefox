@@ -1,4 +1,4 @@
-package com.wefox.techtest.config;
+package com.wefox.techtest.adapter.config;
 
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;

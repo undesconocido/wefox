@@ -1,6 +1,6 @@
 package com.wefox.techtest.adapter.outbound;
 
-import com.wefox.techtest.model.Error;
+import com.wefox.techtest.domain.model.Error;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;

@@ -17,3 +17,7 @@ spring:
     consumer:
       bootstrap-servers: 127.0.0.1:29092
       group-id: incoming_payments
+
+logging:
+  level:
+    com.wefox.techtest: DEBUG

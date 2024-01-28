@@ -1,12 +1,11 @@
-package com.wefox.techtest.store.model;
+package com.wefox.techtest.store.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,6 +19,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 @Entity
 @Table(name = "accounts")
 public class Account {
@@ -35,9 +35,12 @@ public class Account {
     @Column(name = "created_on")
     LocalDateTime createdAt;
 
-    @PrePersist
-    @PreUpdate
-    void pre() {
-        lastPaymentDate = LocalDateTime.now();
+    public static AccountBuilder aTestDefault() {
+        return Account.builder()
+                .id(1)
+                .email("test@test.com")
+                .birthDate(LocalDate.of(1980, 1, 1))
+                .lastPaymentDate(LocalDateTime.now())
+                .createdAt(LocalDateTime.now().minusDays(1));
     }
 }
