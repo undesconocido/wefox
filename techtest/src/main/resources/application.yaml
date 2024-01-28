@@ -1,5 +1,6 @@
 spring:
   datasource:
+    #url: jdbc:postgresql://postgress:5432/payments
     url: jdbc:postgresql://localhost:5432/payments
     username: tech
     password: test
@@ -15,6 +16,7 @@ spring:
   #      use_sql_comments: true
   kafka:
     consumer:
+      #bootstrap-servers: kafka:9092
       bootstrap-servers: 127.0.0.1:29092
       group-id: incoming_payments
 
